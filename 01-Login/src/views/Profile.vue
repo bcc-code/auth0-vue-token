@@ -15,7 +15,9 @@
     </div>
 
     <div class="row">
+      <pre v-highlightjs><code class="json">{{JSON.stringify(auth0.idTokenClaims._rawValue.__raw, null, 2)}}</code></pre>
       <pre v-highlightjs><code class="json">{{JSON.stringify(user, null, 2)}}</code></pre>
+      <pre v-highlightjs><code class="json">{{JSON.stringify(auth0, null, 2)}}</code></pre>
     </div>
   </div>
 </template>
@@ -27,9 +29,10 @@ export default {
   name: "profile",
   setup() {
     const auth0 = useAuth0();
-    
+
     return {
       user: auth0.user,
+      auth0,
     }
   }
 };
